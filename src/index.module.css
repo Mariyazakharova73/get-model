@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-bg-app);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --color-primary: rgb(29, 82, 206);
+  --color-bg-app: rgb(245, 243, 243);
+  --color-bg-card: white;
+  --border-radius-card: 20px;
+  --color-error: rgb(226, 53, 96);
+  --color-success: rgb(52, 130, 57);
+  --color-text: white;
+  --font-weight-bold: 500;
+  --font-size-title: 18px;
+}
+
+.app {
+  padding: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.paramsList {
+  display: flex;
+  padding: 50px;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: var(--border-radius-card);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: var(--color-bg-card);
+  min-width: 634px;
+}
+
+.form {
+  display: flex;
+  padding: 20px 50px;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: var(--border-radius-card);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: var(--color-bg-card);
+}
+
+.inputRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+input {
+  height: 40px;
+  padding: 5px 10px;
+  width: 200px;
+  border-radius: 10px;
+  background: transparent;
+  border: 0;
+  box-shadow: rgba(48, 48, 48, 0.2) 0px 2px 8px 0px;
+  outline-color: var(--color-primary);
+  caret-color: var(--color-primary);
+}
+
+input::placeholder {
+  opacity: 0.5;
+}
+
+.inputValue {
+  width: 200px;
+}
+
+.formInput {
+  width: 300px;
+}
+
+.label {
+  width: 100px;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+button {
+  height: 40px;
+  border-radius: 10px;
+  padding: 15px;
+  border: none;
+  color: var(--color-text);
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.buttonEdit {
+  background-color: var(--color-primary);
+  width: 123px;
+}
+
+.buttonDelete {
+  background-color: var(--color-error);
+  margin-left: auto;
+}
+
+.buttonSave {
+  background-color: var(--color-success);
+  margin-left: auto;
+}
+
+.formTitle {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-title);
+}
