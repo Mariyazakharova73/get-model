@@ -1,8 +1,7 @@
-import { ChangeEvent, FormEvent, memo, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { v4 as uuidv4 } from 'uuid';
 import s from './index.module.css';
-// test
 
 const inputsData = [
   { name: 'title', label: 'Параметр' },
@@ -24,6 +23,7 @@ interface Model {
 type IdType = number | string;
 
 const App = () => {
+  const [isOpenModel, setIsOpenModel] = useState(false);
   const [params, setParams] = useState<Param[]>([
     {
       id: 1,
@@ -48,6 +48,10 @@ const App = () => {
     ],
   });
 
+  const getModel = () => {
+    setIsOpenModel(true);
+  };
+
   const editParamValue = (id: IdType, newValue?: string) => {
     const newArr = model.paramValues.map(item => {
       if (item.paramId === id) {
@@ -66,6 +70,7 @@ const App = () => {
   };
 
   const addNewParam = (paramName: string, paramValue: string) => {
+    
     const newId = uuidv4();
     setModel({
       ...model,
@@ -91,6 +96,10 @@ const App = () => {
         {params.length === 0 && <p>Добавьте новые параметры</p>}
       </div>
       <NewParamForm addNewParam={addNewParam} />
+      <button className={s.buttonEdit} onClick={getModel}>
+        Получить модель
+      </button>
+      {isOpenModel && <code className={s.code}>{JSON.stringify(model)}</code>}
     </main>
   );
 };
@@ -102,7 +111,7 @@ interface ParamComponentProps {
   deleteParamValue: (id: IdType) => void;
 }
 
-const ParamComponent = memo(({
+const ParamComponent = ({
   item,
   model,
   editParamValue,
@@ -175,7 +184,7 @@ const ParamComponent = memo(({
       </button>
     </div>
   );
-});
+};
 
 interface NewParamFormProps {
   addNewParam: (paramName: string, paramValue: string) => void;
